@@ -3,7 +3,7 @@ name: GitHub activity data as a measure of developer activity
 on:
   workflow_dispatch:
   schedule:
-  - cron: '0 0/2 * * *'
+  - cron: '0 * * * *'
 
 jobs:
   stale:
@@ -60,7 +60,7 @@ jobs:
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
 
-          for i in {1..10}
+          for i in {1..20}
           do
             # 生成隨機消息
             TYPES=("feat" "fix" "docs" "style" "refactor" "test" "chore")
